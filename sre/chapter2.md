@@ -13,4 +13,26 @@
       - Kubernetesは、Borgの子孫
       - タスクが、マシンに流動的に割り当てられる
   - ストレージ
-    - 
+    - D（ディスク） < Colossus < Spanner / Bigtable / Blogstore
+    - 自分調べ
+      - Colossus:  AWSでいうS3
+      - Bigtable:  AWSでいうDynamoDB
+      - Spanner:   AWSでいうAurora
+      - Blogstore: AWSでいうS3
+  - ネットワーク
+    - Bandwidth Enforcer（BwE）によって、帯域管理をしている
+    - 3つのレベルでロードバランス
+      - DNSリクエストの地理レベル（www.google.com）
+      - ユーザーサービスレベル(YouTubeとGoolge Maps)
+      - リモートプロシージャコール（RPC）レベル
+- その他のシステムソフトウェア
+  - ロックサービスとして、Chubby
+  - モニタリング・アラートとして、Borgmon
+- Googleのインフラストラクチャ
+  - 全てのサービスで、StubbyというRPCを使って通信する
+  - RPCには、protocol buffersが使われる
+    - Googleが開発したデータシリアライゼーション形式およびスキーマ定義言語(JSONみたいなもの？)
+- Googleの開発環境
+  - 開発速度を最大限に重視している
+  - オープンソースを持つグループを除き、単一のリポジトリ
+  
